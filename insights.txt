@@ -1,0 +1,2 @@
+1. We might evaluate the relationship between average adult mosquito data in four different parts of the city and the number of trap days.
+2. The distribution of mosquito data in four major parts of the city is not exactly similar. The relationship between number of calls to 311, number of traps, weather conditions, soil conditions, and mosquito population could be analyzed.  

@@ -1,0 +1,3 @@
+The weather data is taken from https://www.visualcrossing.com/weather-data-editions,
+
+Location entered was Winnipeg.

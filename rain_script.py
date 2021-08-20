@@ -67,7 +67,7 @@ def get_dominant_color(png_name):
     df = pd.DataFrame({'red': pd.Series(r,dtype='uint8'), 'green':pd.Series(g,dtype='uint8'), 'blue':pd.Series(b,dtype='uint8')})
     
     #now apply the elbow method.  We are clustering around 5 colours, heuristically, we can inc. and dec. to make more accurate
-    num_cluster=5
+    num_clusters=5
     #internally the kmeans requires we convert values to float.
     cluster_centers, distortion = kmeans(df[['red','green','blue']].values.astype(float), num_clusters)
     #create clusters to determine largest cluster

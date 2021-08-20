@@ -92,7 +92,7 @@ def get_dominant_color(png_name):
     del b
     del df
     #finally, return the result 
-    (rdom,gdom,bdom)
+    return (rdom,gdom,bdom)
 
 #The following function adds a single rainevent
 #to our listing of rainevents. We operate on the convention of how the image split library saves file names
@@ -170,7 +170,7 @@ def add_event_from_pdf(event_name_with_suffix,colour_map,events,grid_links,stati
     #step3: call add_event_worker on event_name-'.pdf,station_indices,colour_map,events to add the rain event to events
     add_event_worker(event_name_pure, station_indices, allowed_shift, colour_map, events)
     #step4: the pdf and delete all the pngs created in step1 and step2
-    os.remove(folder_location,event_name_with_suffix)
+    os.remove(event_name_with_suffix)
     for file in os.listdir(folder_location):
         if file.endswith(".png"):
             os.remove(file)
@@ -347,14 +347,15 @@ default_station_indices = [] # a list of (row,col,name) corresponding to the row
 default_allowed_shift=1000#this parameter needs tuned to be accurate
 # now we're all set to call add_all_events_from_pdf(colour_to_rainfall_mm,default_grid_links,default_station_indices) in the main script!  woohoo.
 
-response = requests.get(url)
-soup = BeautifulSoup(response.text,"html.parser")
-for link in soup.select("a[href$='.pdf']"):
-    filename = os.path.join(folder_location,link['href'].split('/')[-1])  ## okay, need to go figure out what indexing by -1 means in python... surely, it will be something a bit cute
-    with open(filename,'wb') as f:
-        f.write(requests.get(urljoin(url,link['href'])).content)
+#response = requests.get(url)
+#soup = BeautifulSoup(response.text,"html.parser")
+#for link in soup.select("a[href$='.pdf']"):
+#    filename = os.path.join(folder_location,link['href'].split('/')[-1])  ## okay, need to go figure out what indexing by -1 means in python... surely, it will be something a bit cute
+#    with open(filename,'wb') as f:
+#        f.write(requests.get(urljoin(url,link['href'])).content)
 
 #do the analysis
 add_all_events_from_pdf(colour_to_rainfall_mm,default_grid_links,default_station_indices,default_allowed_shift)        
+
 
 

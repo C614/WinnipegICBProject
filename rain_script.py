@@ -8,6 +8,11 @@
 # WARNING
 # WARNING: Do not run this file in a directory containing pdfs or pngs that you care about.
 # Out of laziness, it just deletes all pdfs and pngs 
+# LIBS_REQUIRED:
+# * https://opencv.org/releases/
+# * https://imagemagick.org/index.php
+# * https://poppler.freedesktop.org/
+# Also, required: a C/C++ compiler, e.g. https://clang.llvm.org/ 
 
 import os # used for file operations on disk
 import numpy as np #used for numpy arrays and for compat with plotting
